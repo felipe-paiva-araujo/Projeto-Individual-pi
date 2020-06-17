@@ -73,29 +73,30 @@
         </div>
     </section>
     <section id="encomenda">
-       <div>
-        <form id="form_login" method="post" onsubmit="return entrar()">
-            Usuário: <input type="text" name="login">
-            <br>
-            Senha: <input type="password" name="senha">
-            <br>
-            <button id="btn_entrar">Entrar</button>
-        </form>
-            <Button class="but">logar</Button>
-            <a href="cadastro.html" class="but"> cadastrar-se</a>
-
-            
-        </div>
-        <div id="div_erro" style="background-color: sandybrown; color: maroon; display: none;">
-        
-        </div>
+        <div>
+            <form id="form_login" method="post" onsubmit="return entrar()">
+                Usuário: <input type="text" name="login">
+                <br>
+                Senha: <input type="password" name="senha">
+                <br>
+                <button id="btn_entrar" class="but">logar</button>
+            </form>
+                <Button class="but">logar</Button>
+                <a href="cadastro.html" class="but"> cadastrar-se</a>
+    
+    
+            </div>
+            <!-- <img src="aguarde.gif" id="img_aguarde" style="display: none;"> -->
+            <div id="div_erro" style="background-color: sandybrown; color: maroon; display: none;">
+    
+            </div>
     </section>
 </body>
 </html>
 <script>
 
     function entrar() {
-        aguardar();
+        // aguardar();
         var formulario = new URLSearchParams(new FormData(form_login));
         fetch("/usuarios/autenticar", {
             method: "POST",
@@ -109,7 +110,7 @@
                     sessionStorage.login_usuario_meuapp = json.Login;
                     sessionStorage.nome_usuario_meuapp = json.Nome;
                     
-                    window.location.href = 'suporte.html';
+                    window.location.href = '/simulador.html';
                 });
 
             } else {
@@ -118,7 +119,7 @@
 
                 response.text().then(texto => {
                     console.error(texto);
-                    finalizar_aguardar(texto);
+                    // finalizar_aguardar(texto);
                 });
             }
         });
@@ -126,17 +127,17 @@
         return false;
     }
 
-    function aguardar() {
-        btn_entrar.disabled = true;
-        img_aguarde.style.display = 'block';
-        div_erro.style.display = 'none';
-    }
+    // function aguardar() {
+    //     btn_entrar.disabled = true;
+    //     img_aguarde.style.display = 'block';
+    //     div_erro.style.display = 'none';
+    // }
 
-    function finalizar_aguardar(resposta) {
-        btn_entrar.disabled = false;
-        img_aguarde.style.display= 'none';
-        div_erro.style.display = 'block';
-        div_erro.innerHTML = resposta;
-    }
+    // function finalizar_aguardar(resposta) {
+    //     btn_entrar.disabled = false;
+    //     img_aguarde.style.display= 'none';
+    //     div_erro.style.display = 'block';
+    //     div_erro.innerHTML = resposta;
+    // }
 
 </script>
