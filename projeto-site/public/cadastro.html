@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/estilo/style.css">
+    <title>cadastrar-se</title>
+</head>
+<body>
+    <header id="header">
+        <a href="#" class="logo">Biju Paiva</a>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+        </ul>
+        <div class="toggle"></div>
+    </header>
+
+    <section id="cadastro">
+        <div>
+        <h2>Cadastre-se agora mesmo</h2>
+    
+
+    
+    <form id="cadastro" onsubmit="enviaContatoProBanco()">
+        <ul id="mensagemErro" class="m-erro">
+        </ul>
+        <div class="form">
+            <input autocomplete="off" type="text" required id="nome">
+            <label for="nome" class="label-nome">
+                <Span class="span-nome">Nome completo</Span>
+            </label>
+        </div>
+    
+        <div class="form">
+            <input autocomplete="off" type="text" required id="email">
+            <label for="nome" class="label-nome">
+                <Span class="span-nome">Email</Span>
+            </label>
+        </div>
+
+        <div class="form">
+            <input autocomplete="off" type="password" name="senha" required id="senha">
+            <label for="nome" class="label-nome">
+                <Span class="span-nome">Senha</Span>
+            </label>
+        </div>
+
+        <div class="form">
+            <input autocomplete="off" type="password" name="senha_2" required id="senha2">
+            <label for="nome" class="label-nome">
+                <Span class="span-nome">Repetir senha</Span>
+            </label>
+        </div>
+        <br>
+    <input class="but" type="submit" value="Cadastrar-se">
+    </form>
+    
+    <div class="mensagem" id="sucesso"></div>
+</div>
+</section>
+</body>
+</html>
+
+<script>
+
+    function enviaContatoProBanco(){
+
+        var erros = validaContato();
+        mensagemErro.innerHTML = "";
+
+        if(erros.length > 0){
+            for(var i=0; i < erros.length; i++){
+            var erro = erros[i];
+            var li = document.createElement("li");
+            li.innerHTML = erro;
+            mensagemErro.appendChild(li);
+            }
+        }
+        else
+        {
+            sucesso.innerHTML = "Cadastrado com sucesso"
+        }       
+}
+
+
+    function validaContato()
+    {
+        if(!nomesobrenome.value){
+          erros.push("Prencher nome!");
+        }
+
+        if(!email.value ||
+            (email.value.search("@") == -1) ||
+            (email.value.search(".") == -1) ||
+            (email.value.search(" ") >= '')){
+          erros.push("O formato do email é: usuario@dominio.com");
+        }
+
+        if (senha.length() < 5)
+        {
+            erros.push("Senha muito pequena")
+        }
+
+        if (senha != senha2)
+        {
+            erros.push("As senhas não coincidem")
+        }
+        return erros;
+    }
+
+</script>

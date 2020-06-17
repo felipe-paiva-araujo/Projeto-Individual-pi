@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap');
+
+*
+{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: poppins, sans-serif;
+}
+
+header
+{
+position: fixed;
+width: 100%;
+height: 80px;
+padding: 0 100px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+background: #33cc33;
+z-index: 1000;
+}
+header .logo
+{
+color: #e6e6ff;
+font-size: 30px;
+text-decoration: none;
+letter-spacing: 2px;
+font-weight: 700;
+}
+
+header ul
+{
+
+display: flex;
+
+}
+
+header ul li
+{
+
+list-style: none;    
+}
+
+header ul li a
+{
+padding: 5px 10px;
+color: #e6e6ff;
+display: inline-block;
+text-decoration: none;
+cursor: pointer;
+}
+
+header ul li a:hover
+{
+    color: #009933;
+    font-weight: bold;
+}
+
+.toggle
+{
+display: none;
+}
+
+section 
+{
+display: flex;
+align-items: center;
+padding: 150px 100px 100px;
+}
+
+section img 
+{
+max-width: 350px;
+margin-left: 30px;
+}
+
+section h2
+{
+font-size: 2.5em;
+text-transform: uppercase;
+}
+
+section p
+{
+    font-size: 18px;
+}
+
+section a 
+{
+display: inline-block;
+padding: 8px 10px;
+text-decoration: none;
+font-size: 18px;
+background: #111;
+color: #e6e6ff;
+margin-top: 20px;
+border-radius: 5px;
+}
+
+section:nth-child(odd)
+{
+align-items: center;
+background: #33cc33;
+color: black;
+}
+
+.form
+{
+    width: 50%;
+    position: relative;
+    height: 50px;
+    overflow: hidden;
+}
+
+.form input 
+{
+    width: 100%;
+    height: 100%;
+    padding-top: 20px;
+    border: none;
+    outline: none;
+}
+
+.form label 
+{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    color: black;
+    border-bottom: 1px solid black;
+}
+.form label::after
+{
+    content: "";
+    position: absolute;
+    left: 0px;
+    bottom: -1px;
+    height: 100%;
+    width: 100%;
+    border-bottom: 3px solid greenyellow;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.span-nome
+{
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    transition: all 0.3s ease;
+}
+
+.form input:focus + .label-nome .span-nome, 
+.form input:valid + .label-nome .span-nome
+{
+    transform: translateY(-140%);
+    font-size: 12px;
+    color: greenyellow;
+}
+
+.form input:focus + .label-nome::after,
+.form input:valid + .label-nome::after 
+{
+    transform: translateX(0%);
+}
+
+.but 
+{
+
+    border-radius: 10px;
+    background: linear-gradient(rgb(54, 255, 47), rgb(35, 212, 109));
+    color: black;
+    outline: none;
+    border: none;
+    padding: 8px 5px;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.but:hover
+{
+    border-radius: 10px;
+    background: linear-gradient(rgb(35, 212, 109), rgb(54, 255, 47));
+    color: black;
+    outline: none;
+    border: none;
+    padding: 8px 5px;
+    font-size: 15px;
+    text-decoration: none;
+}
