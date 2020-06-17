@@ -1,0 +1,20 @@
+ <h2>faça uma encomenda</h2>
+            <br>
+            <br>
+            <form id="login"></form>
+                <div class="form">
+                    <input autocomplete="off" type="text" name="nome" required>
+                    <label for="nome" class="label-nome">
+                        <Span class="span-nome">Nome completo</Span>
+                    </label>
+                </div>
+            <br>
+            
+                <div class="form">
+                    <input autocomplete="off" type="text" name="senha" required>
+                    <label for="nome" class="label-nome">
+                        <Span class="span-nome">Senha</Span>
+                    </label>
+                </div>
+            <br>
+            </form> 
