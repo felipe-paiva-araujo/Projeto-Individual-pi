@@ -3,16 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Biju Paiva</title>
+    <script type="text/javascript" src="funcoes.js"></script>
     <link rel="stylesheet" href="/estilo/style.css">
 </head>
 <body>
     <header id="header">
         <a href="#" class="logo">Biju Paiva</a>
         <ul>
-            <li><a href="home.html">Home</a></li>
+            <li><a href="index.html">Home</a></li>
         </ul>
         <div class="toggle"></div>
     </header>
+    <section>
+        <div>
+        <h2>Realize aqui o seu pedido</h2>
+        
+        sabor:
+<br> 
+         <select id="sabor">
+                    <option value="trad">tradicional - R$5</option>
+                    <option value="moran">morango - R$7</option>
+                    <option value="choco">chocolate - R$6</option>
+        </select>
+<br>
+<br>
+        quantidade:
+<br> 
+        <input type="number" id="qtd">
+<br>
+<br>
+        <button class="but" onclick="carrinho()">Adicionar ao carrinho</button>
+<br>
+<br>
+        <b>Carrinho:</b>
+        <div id="carro"></div>
+        <div id="preco"></div>
+        <button onclick="finaliza_compra()" class="but">Finaliza compra</button>
+        </div>
+        
+    </section>
 </body>
 </html>
+<script>
+    let preco_total = 0;
+    let tradi = 0;
+    let chocol = 0;
+    let mor = 0;
+    function carrinho()
+    {
+        if (sabor.value == "trad")
+        {
+            
+            tradi += qtd.value;
+             preco_total += 5 * qtd.value;
+            carro.innerHTML += "Tradicional x" + tradi + "<br>";
+            preco.innerHTML = "preço total a ser pago: R$" + preco_total + ",00";
+        }
+        if (sabor.value == "choco")
+        {
+            
+            chocol += qtd.value;
+             preco_total += 6 * qtd.value;
+            carro.innerHTML += "Chocolate x" + chocol + "<br>";
+            preco.innerHTML = "preço total a ser pago: R$" + preco_total + ",00";
+        }
+        if (sabor.value == "moran")
+        {
+            
+            mor += qtd.value;
+             preco_total += 7 * qtd.value;
+            carro.innerHTML += "Morango x" + mor + "<br>";
+            preco.innerHTML = "preço total a ser pago: R$" + preco_total + ",00";
+        }
+    }
+
+    function finaliza_compra()
+    {
+        carro.innerHTML = "compra realizada com sucesso";
+        preco.innerHTML = "valor pago = R$" + preco_total +",00";
+    }
+</script>

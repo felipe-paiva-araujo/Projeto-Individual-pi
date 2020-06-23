@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/estilo/style.css">
+    
     <title>Biju Paiva</title>
 </head>
+
 <body>
     <header id="header">
         <a href="#" class="logo">Biju Paiva</a>
@@ -23,12 +26,11 @@
     <section id="home">
         <div>
             <h2>Conheça o melhor biju ja produzido</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Ipsam, voluptatum expedita! Magni nulla eius modi. 
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Perspiciatis deleniti sit vero a reprehenderit autem ipsam, 
-                harum nobis magnam esse dolorem officiis minima enim! 
-                Itaque consequatur tenetur dolor eligendi nesciunt!
+            <p>
+                Nós da Biju Paiva temos o prazer de oferecer o melhor biju, produzido com a melhor qualidade
+                e os melhores ingredientes. Tudo feito com higiene e um extremo controle de qualidade 
+                para proporcionar um doce simples e saboroso, perfeito para ser compartilhado ou comido sozinho mesmo
+
             </p>
         </div>
         <img src="/img/biju.jpg">
@@ -36,62 +38,83 @@
     <section id="biju">
         <div>
             <h2>o que é biju?</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Ipsam, voluptatum expedita! Magni nulla eius modi. 
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Perspiciatis deleniti sit vero a reprehenderit autem ipsam, 
-                harum nobis magnam esse dolorem officiis minima enim! 
-                Itaque consequatur tenetur dolor eligendi nesciunt!
+            <p>
+                O biju é um doce simples feito de trigo, leite condensado, leite em pó açúcar e ovo. 
+                é muito tradicional, vendido desde o século IX aqui no brasil, muito comum no nordeste
+                e norte do país. tem um formato de canudo, é bem fino e combina muito bem com diversos 
+                tipos de acompanhamento.
             </p>
         </div>
     </section>
     <section id="trad">
         <div>
             <h2>nossa tradição</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Ipsam, voluptatum expedita! Magni nulla eius modi. 
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Perspiciatis deleniti sit vero a reprehenderit autem ipsam, 
-                harum nobis magnam esse dolorem officiis minima enim! 
-                Itaque consequatur tenetur dolor eligendi nesciunt!
+            <p>
+                A família Paiva e Moreira vende biju a muito tempo do jeito mais tradicional exixtente:
+                nas ruas e com a matraca na mão. Clique em saber mais para saber um pouco mais da nossa 
+                história
             </p>
-            <a href="" class="but">saber mais</a>
+            <br>
+            <a href="tradicao.html" class="but">saber mais</a>
         </div>
         <img src="/img/trad.jpg">
     </section>
     <section id="nutri">
         <div>
-            <h2>informações nutricionais</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Ipsam, voluptatum expedita! Magni nulla eius modi. 
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Perspiciatis deleniti sit vero a reprehenderit autem ipsam, 
-                harum nobis magnam esse dolorem officiis minima enim! 
-                Itaque consequatur tenetur dolor eligendi nesciunt!
-            </p>
-            
+            <h2>informações nutricionais (por pacote)</h2>
+            <table style="width:100%">
+                  <tr>
+                      <td>Calorias</td>
+                      <td>72Kcal</td>
+                  </tr>
+                  <tr>
+                    <td>Carboidratos</td>
+                    <td>44g</td>
+                </tr>
+                <tr>
+                    <td>Proteínas</td>
+                    <td>7g</td>
+                </tr>
+                <tr>
+                    <td>gorduras</td>
+                    <td>1g</td>
+                </tr>
+                </table>
         </div>
     </section>
     <section id="encomenda">
         <div>
+            <h2>faça uma encomenda</h2>
             <form id="form_login" method="post" onsubmit="return entrar()">
-                Usuário: <input type="text" name="login">
+                <div class="form">
+                    <input type="text" name="login" autocomplete="off" required>
+                    <label for="login" class="label-nome">
+                        <Span class="span-nome">Email</Span>
+                    </label>
+                </div>
                 <br>
-                Senha: <input type="password" name="senha">
+                <div class="form">
+                    <input type="password" name="senha" autocomplete="off" required>
+                    <label for="senha" class="label-nome">
+                        <Span class="span-nome">Senha</Span>
+                    </label>
+                    <br>
+                </div>
                 <br>
                 <button id="btn_entrar" class="but">logar</button>
-            </form>
-                <Button class="but">logar</Button>
                 <a href="cadastro.html" class="but"> cadastrar-se</a>
-    
-    
-            </div>
-            <!-- <img src="aguarde.gif" id="img_aguarde" style="display: none;"> -->
-            <div id="div_erro" style="background-color: sandybrown; color: maroon; display: none;">
-    
-            </div>
+            </form>
+            
+
+
+        </div>
+        <!-- <img src="aguarde.gif" id="img_aguarde" style="display: none;"> -->
+        <div id="div_erro" style="background-color: sandybrown; color: maroon; display: none;">
+
+        </div>
     </section>
 </body>
+
 </html>
 <script>
 
@@ -102,14 +125,14 @@
             method: "POST",
             body: formulario
         }).then(resposta => {
-            
+
             if (resposta.ok) {
 
                 resposta.json().then(json => {
 
                     sessionStorage.login_usuario_meuapp = json.Login;
                     sessionStorage.nome_usuario_meuapp = json.Nome;
-                    
+
                     window.location.href = '/simulador.html';
                 });
 

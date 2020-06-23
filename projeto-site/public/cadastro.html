@@ -3,25 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/estilo/style.css">
+    <link rel="stylesheet" href="/estilo/estilo.css">
     <title>cadastrar-se</title>
 </head>
 <body>
     <header id="header">
         <a href="#" class="logo">Biju Paiva</a>
         <ul>
-            <li><a href="home.html">Home</a></li>
+            <li><a href="index.html">Home</a></li>
         </ul>
         <div class="toggle"></div>
     </header>
 
-    <section id="cadastro">
+    <section id="formulario">
         <div>
         <h2>Cadastre-se agora mesmo</h2>
     
 
     
-    <form id="cadastro" onsubmit="enviaContatoProBanco()">
         <ul id="mensagemErro" class="m-erro">
         </ul>
         <div class="form">
@@ -52,8 +51,8 @@
             </label>
         </div>
         <br>
-    <input class="but" type="submit" value="Cadastrar-se">
-    </form>
+    <button class="but" onclick="enviaContatoProBanco()">Cadastre-se</button>
+    
     
     <div class="mensagem" id="sucesso"></div>
 </div>
@@ -85,27 +84,27 @@
 
     function validaContato()
     {
-        if(!nomesobrenome.value){
-          erros.push("Prencher nome!");
+        var errado = [];
+        if(!nome.value){
+          errado.push("Prencher nome!");
         }
 
         if(!email.value ||
             (email.value.search("@") == -1) ||
             (email.value.search(".") == -1) ||
             (email.value.search(" ") >= '')){
-          erros.push("O formato do email é: usuario@dominio.com");
+          errado.push("O formato do email é: usuario@dominio.com");
         }
 
-        if (senha.length() < 5)
+        if (senha.value.length < 5)
         {
-            erros.push("Senha muito pequena")
+            errado.push("Senha muito pequena")
         }
 
-        if (senha != senha2)
+        if (senha.value != senha2.value)
         {
-            erros.push("As senhas não coincidem")
+            errado.push("As senhas não coincidem")
         }
-        return erros;
+        return errado;
     }
-
 </script>
